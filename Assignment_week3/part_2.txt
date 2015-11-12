@@ -1,0 +1,3 @@
+Sample(Sample& c){
+    this->v = 10;
+}

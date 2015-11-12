@@ -1,0 +1,7 @@
+A():val(0){};
+A(int n){
+    this->val =n;
+}
+A& GetObj(){
+    return *this;
+}

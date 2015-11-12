@@ -35,3 +35,11 @@ public:
         return sum/len;
     }
 };
+
+
+int main(){ 
+    Student s1;
+    s1.input();
+    s1.output();
+    
+}
