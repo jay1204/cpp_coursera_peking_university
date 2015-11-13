@@ -1,0 +1,35 @@
+ Complex& operator=(const char* s){
+
+        if(!s){
+
+            return *this;
+
+        }
+        
+        
+	int len = strlen(s)+1;
+
+        int pos = 0;
+
+        char real[len];
+
+        char imag[len];
+
+        while(s[pos] !='+')
+
+            pos++;
+            
+        
+	strncpy(real,s,pos);
+        
+	strncpy(imag,s+pos+1,len-3-pos);
+
+        r = atof(real);
+        
+	i = atof(imag);
+        
+        
+	return *this;
+        
+    
+}

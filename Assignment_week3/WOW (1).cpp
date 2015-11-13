@@ -35,8 +35,9 @@ private:
     vector<Warrior> wolf;
     vector<Warrior_type> create_seq;
     vector<int> strength_list;
+    int turn;
 public:
-    Headquarter(string s, int M,vector<Warrior_type> create_seq,vector<int> strength_list):name(s),count(0),life(M),create_seq(create_seq),strength_list(strength_list){ }
+    Headquarter(string s, int M,vector<Warrior_type> create_seq,vector<int> strength_list):name(s),count(0),life(M),create_seq(create_seq),strength_list(strength_list),turn(0){ }
     
     bool new_Warrior(int count_time){
         bool success = false;
@@ -45,44 +46,49 @@ public:
             return 0;
         }
         int choice_num = create_seq.size();
-        int choice = count%create_seq.size();
+        turn  = turn%5;
         Warrior_type ty;
         
         while(choice_num>0 && !success){
-            ty = create_seq[choice];
+            ty = create_seq[turn];
             if(ty == DRAGON && life >= strength_list[0]){
                 count++;
+                turn++;
                 Warrior warr(count,strength_list[0],0);
                 life -= strength_list[0];
                 dragon.push_back(warr);
                 success = true;
             }else if(ty == NINJA && life >= strength_list[1]){
                 count++;
+                turn++;
                 Warrior warr(count,strength_list[1],0);
                 life -= strength_list[1];
                 ninja.push_back(warr);
                 success = true;
             }else if(ty == ICEMAN && life >= strength_list[2]){
                 count++;
+                turn++;
                 Warrior warr(count,strength_list[2],0);
                 life -= strength_list[2];
                 iceman.push_back(warr);
                 success = true;
             }else if(ty == LION && life >= strength_list[3]){
                 count++;
+                turn++;
                 Warrior warr(count,strength_list[3],0);
                 life -= strength_list[3];
                 lion.push_back(warr);
                 success = true;
             }else if(ty == WOLF && life >= strength_list[4]){
                 count++;
+                turn++;
                 Warrior warr(count,strength_list[4],0);
                 life -= strength_list[4];
                 wolf.push_back(warr);
                 success = true;
             }else{
                 choice_num--;
-                choice = (choice+1)%5;
+                turn = (turn+1)%5;
             }
             
         }
@@ -175,6 +181,5 @@ int main(){
             }
             hour++;
         }
-        cout << endl;
     }
 }

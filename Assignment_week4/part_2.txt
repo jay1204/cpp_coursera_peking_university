@@ -1,0 +1,7 @@
+ MyInt& operator-(int n){
+
+           this->nVal -= n;
+
+            return *this;
+
+        }
