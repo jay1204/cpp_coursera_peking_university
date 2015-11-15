@@ -1,0 +1,11 @@
+class MyString:public string{
+public:
+    MyString():string(){ };
+    MyString(string str):string(str){ };
+    MyString(const char* str):string(str){ };
+    
+    string operator()(int start, int len){
+        return string::substr(start,len);
+    }
+    
+};
